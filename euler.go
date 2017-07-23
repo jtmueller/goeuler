@@ -12,6 +12,7 @@ import (
 func main() {
 	problems := []func(){
 		run001, run002, run003, run004, run005,
+		run006,
 	}
 	reader := bufio.NewReader(os.Stdin)
 
@@ -20,6 +21,7 @@ Loop:
 		fmt.Printf("\nEnter an Euler problem number, 1 to %d or 'all' or 'exit': ", len(problems))
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimRight(input, "\r\n")
+
 		switch input {
 		case "exit":
 			break Loop
