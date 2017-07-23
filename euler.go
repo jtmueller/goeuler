@@ -16,7 +16,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		fmt.Printf("\nEnter Euler problem number, up to %d: ", len(problems))
+		fmt.Printf("\nEnter an Euler problem number, 1 to %d: ", len(problems))
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimRight(input, "\r\n")
 		if input == "exit" {
@@ -24,7 +24,7 @@ func main() {
 		}
 
 		num, err := strconv.Atoi(input)
-		if err == nil {
+		if err == nil && num > 0 && num <= len(problems) {
 			start := time.Now()
 			problems[num-1]()
 			elapsed := time.Since(start)
