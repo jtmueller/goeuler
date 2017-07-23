@@ -33,5 +33,5 @@ func run002() {
 		return x < 4000000
 	})
 
-	fmt.Println(sum)
+	fmt.Printf("The sum of all the even Fibonacci numbers below four million is %d.", sum)
 }

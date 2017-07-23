@@ -31,8 +31,8 @@ func isPrime(n int) bool {
 	}
 }
 
-func largestPrimeFactor(n uint64) uint64 {
-	x := n
+func largestPrimeFactor(n int) uint64 {
+	x := uint64(n)
 	var fact uint64
 
 	for i := uint64(2); i*i <= x; {
@@ -56,5 +56,7 @@ func largestPrimeFactor(n uint64) uint64 {
 
 func run003() {
 	fmt.Print("003: ")
-	fmt.Println(largestPrimeFactor(600851475143))
+	x := 600851475143
+	lpf := largestPrimeFactor(x)
+	fmt.Printf("The largest prime factor of %d is %d.", x, lpf)
 }

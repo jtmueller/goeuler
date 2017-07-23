@@ -51,5 +51,5 @@ func run004() {
 			}
 		}
 	}
-	fmt.Printf("Found the palindrome %d, which is made from %d * %d.\n", palin, factors[0], factors[1])
+	fmt.Printf("Found the palindrome %d, which is made from %d * %d.", palin, factors[0], factors[1])
 }

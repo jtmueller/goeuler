@@ -11,24 +11,35 @@ import (
 
 func main() {
 	problems := []func(){
-		run001, run002, run003, run004,
+		run001, run002, run003, run004, run005,
 	}
 	reader := bufio.NewReader(os.Stdin)
 
+Loop:
 	for {
-		fmt.Printf("\nEnter an Euler problem number, 1 to %d: ", len(problems))
+		fmt.Printf("\nEnter an Euler problem number, 1 to %d or 'all' or 'exit': ", len(problems))
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimRight(input, "\r\n")
-		if input == "exit" {
-			break
-		}
-
-		num, err := strconv.Atoi(input)
-		if err == nil && num > 0 && num <= len(problems) {
+		switch input {
+		case "exit":
+			break Loop
+		case "all":
 			start := time.Now()
-			problems[num-1]()
+			for _, p := range problems {
+				p()
+				fmt.Println()
+			}
 			elapsed := time.Since(start)
 			fmt.Printf("Execution time: %s\n", elapsed)
+		default:
+			num, err := strconv.Atoi(input)
+			if err == nil && num > 0 && num <= len(problems) {
+				start := time.Now()
+				problems[num-1]()
+				fmt.Println()
+				elapsed := time.Since(start)
+				fmt.Printf("Execution time: %s\n", elapsed)
+			}
 		}
 	}
 }
