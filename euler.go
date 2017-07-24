@@ -12,7 +12,7 @@ import (
 func main() {
 	problems := []func(){
 		run001, run002, run003, run004, run005,
-		run006, run007, run008,
+		run006, run007, run008, run009,
 	}
 	reader := bufio.NewReader(os.Stdin)
 
