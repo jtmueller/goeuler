@@ -13,6 +13,7 @@ func main() {
 	problems := []func(){
 		run001, run002, run003, run004, run005,
 		run006, run007, run008, run009, run010,
+		run011,
 	}
 	reader := bufio.NewReader(os.Stdin)
 

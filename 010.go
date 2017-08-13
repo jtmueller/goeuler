@@ -58,5 +58,5 @@ func sum(nums *bitset.BitSet) uint {
 func run010() {
 	fmt.Print("010: ")
 
-	fmt.Printf("The sum of all the primes below two million is %d.\n", sum(sieve(2000000)))
+	fmt.Printf("The sum of all the primes below two million is %d.", sum(sieve(2000000)))
 }
