@@ -14,7 +14,8 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 func reverse(s string) string {
 	r := []rune(s)
-	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+	ln := len(r)
+	for i, j := 0, ln-1; i < ln/2; i, j = i+1, j-1 {
 		r[i], r[j] = r[j], r[i]
 	}
 	return string(r)

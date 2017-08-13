@@ -13,29 +13,21 @@ What is the 10,001st prime number?
 
 */
 
-func nthPrime(n int) int {
-	limit := 125000
-	primes := make([]bool, limit)
-	var count, i, j int
+func nthPrime(n uint) uint {
+	var i, count uint
+	limit := n * 12
+	primes := sieve(limit)
 
 	for i = 2; i < limit; i++ {
-		primes[i] = true
-	}
-
-	for i = 2; i < limit; i++ {
-		if primes[i] {
-			j = i * i
-			for j < limit {
-				primes[j] = false
-				j += i
-			}
+		if primes.Test(i) {
 			count++
 		}
 		if count == n {
 			return i
 		}
 	}
-	return -1
+
+	return 0
 }
 
 func run007() {
