@@ -1,5 +1,7 @@
 package main
 
+// adapted from https://github.com/divan/num2words
+
 import "math"
 
 // how many digit's groups to process
