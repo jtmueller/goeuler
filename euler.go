@@ -17,6 +17,19 @@ func main() {
 		run016, run017, run018, run019, run020,
 		run021,
 	}
+
+	args := os.Args[1:]
+	if len(args) > 0 {
+		if n, err := strconv.Atoi(args[0]); err == nil && n <= len(problems) {
+			start := time.Now()
+			problems[n-1]()
+			fmt.Println()
+			elapsed := time.Since(start)
+			fmt.Printf("Execution time: %s\n", elapsed)
+			return
+		}
+	}
+
 	reader := bufio.NewReader(os.Stdin)
 
 Loop:
