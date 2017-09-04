@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 /*
@@ -16,13 +17,39 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 */
 
-func sumPDiv(n int) int {
-	var sum int
+func sumFactors(n int) int {
+	sqrt := int(math.Sqrt(float64(n)))
+	sum := 1
+
+	// If the number is a perfect square, count the sqrt once in the
+	// sum of factors.
+	if n == sqrt*sqrt {
+		sum += sqrt
+		sqrt--
+	}
+
+	for i := 2; i <= sqrt; i++ {
+		if n%i == 0 {
+			sum += (i + (n / i))
+		}
+	}
 
 	return sum
 }
 
 func run021() {
 	fmt.Print("021: ")
+	const limit = 10000
+	var sumAmicable, fi int
 
+	for i := 2; i < limit; i++ {
+		fi = sumFactors(i)
+		if fi > i && fi < limit {
+			if fj := sumFactors(fi); fj == i {
+				sumAmicable += (i + fi)
+			}
+		}
+	}
+
+	fmt.Printf("The sum of all amicable numbers under %d is: %d.", limit, sumAmicable)
 }
