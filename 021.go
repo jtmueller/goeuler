@@ -19,23 +19,15 @@ Evaluate the sum of all the amicable numbers under 10000.
 
 */
 
-func nextPrime(n int, primes *bitset.BitSet) int {
-	for i, ln := uint(n), primes.Len(); i < ln; i++ {
-		if primes.Test(i) {
-			return int(i)
+func sumFactors(number uint, primes *bitset.BitSet, numPrimes uint) uint {
+	n, sum := number, uint(1)
+	var j, p uint
+
+	for i := uint(0); n > 1 && i < numPrimes && p*p <= n; i++ {
+		p, ok := primes.NextSet(i)
+		if !ok {
+			break
 		}
-	}
-
-	return 0
-}
-
-func sumFactors(number int, primes *bitset.BitSet) int {
-	n, sum := number, 1
-	var j, p int
-	numPrimes := int(primes.Count())
-
-	for i := 0; p*p <= n && n > 1 && i < numPrimes; i++ {
-		p = nextPrime(i, primes)
 		if n%p == 0 {
 			j = p * p
 			n /= p
@@ -57,14 +49,15 @@ func sumFactors(number int, primes *bitset.BitSet) int {
 
 func run021() {
 	fmt.Print("021: ")
-	const limit = 10000
+	const limit uint = 10000
 	primes := sieve(uint(math.Sqrt(float64(limit)) + 1))
-	var sumAmicable, fi int
+	numPrimes := primes.Count()
+	var sumAmicable, fi uint
 
-	for i := 2; i < limit; i++ {
-		fi = sumFactors(i, primes)
+	for i := uint(2); i < limit; i++ {
+		fi = sumFactors(i, primes, numPrimes)
 		if fi > i && fi < limit {
-			if fj := sumFactors(fi, primes); fj == i {
+			if fj := sumFactors(fi, primes, numPrimes); fj == i {
 				sumAmicable += (i + fi)
 			}
 		}

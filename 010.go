@@ -45,12 +45,10 @@ func sieve(limit uint) *bitset.BitSet {
 	return primes
 }
 
-func sum(nums *bitset.BitSet) uint {
-	var x, i uint
-	for ln := nums.Len(); i < ln; i++ {
-		if nums.Test(i) {
-			x += i
-		}
+func sumSet(nums *bitset.BitSet) uint {
+	var x uint
+	for i, ok := nums.NextSet(0); ok; i, ok = nums.NextSet(i + 1) {
+		x += i
 	}
 	return x
 }
@@ -58,5 +56,5 @@ func sum(nums *bitset.BitSet) uint {
 func run010() {
 	fmt.Print("010: ")
 
-	fmt.Printf("The sum of all the primes below two million is %d.", sum(sieve(2000000)))
+	fmt.Printf("The sum of all the primes below two million is %d.", sumSet(sieve(2000000)))
 }
