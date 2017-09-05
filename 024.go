@@ -51,5 +51,5 @@ func run024() {
 		permNum += strconv.Itoa(digits[i])
 	}
 
-	fmt.Printf("THe millionth permutation is: %s", permNum)
+	fmt.Printf("The millionth permutation is: %s", permNum)
 }
