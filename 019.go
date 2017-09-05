@@ -35,5 +35,5 @@ func run019() {
 		}
 	}
 
-	fmt.Printf("The number of Sundays that fell on the first of the month in the 20th century was %d.", sundayCount)
+	fmt.Printf("First of the month Sundays in the 20th century: %d.", sundayCount)
 }

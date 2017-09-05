@@ -39,5 +39,5 @@ func squareSum(limit int) int {
 func run006() {
 	fmt.Print("006: ")
 	diff := squareSum(100) - sumSquares(100)
-	fmt.Printf("The difference between the sum of the squares and the square of the sums of the first 100 numbers is: %d", diff)
+	fmt.Printf("The difference between sum/squares and the square/sums: %d", diff)
 }

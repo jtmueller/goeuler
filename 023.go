@@ -63,5 +63,5 @@ func run023() {
 		sum += i
 	}
 
-	fmt.Printf("Sum of positive integers that cannot be written as the sum of two abundant numbers: %d", sum)
+	fmt.Printf("Non-abundant sum: %d", sum)
 }
