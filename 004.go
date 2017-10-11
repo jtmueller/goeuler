@@ -24,7 +24,10 @@ func reverse(s string) string {
 func makePalindrome(firstHalf int) int {
 	fh := strconv.Itoa(firstHalf)
 	sh := reverse(fh)
-	out, _ := strconv.Atoi(fh + sh)
+	out, err := strconv.Atoi(fh + sh)
+	if err != nil {
+		return firstHalf
+	}
 	return out
 }
 
