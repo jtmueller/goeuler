@@ -21,18 +21,14 @@ func run009() {
 
 	a, b, c := 0, 0, 0
 	s := 1000
-	found := false
 
+Loop:
 	for a = 1; a < s/3; a++ {
 		for b = a; b < s/2; b++ {
 			c = s - a - b
 			if a*a+b*b == c*c {
-				found = true
-				break
+				break Loop
 			}
-		}
-		if found {
-			break
 		}
 	}
 

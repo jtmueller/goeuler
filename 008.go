@@ -38,12 +38,11 @@ const digits = "7316717653133062491922511967442657474235534919493496983520312774
 func run008() {
 	fmt.Print("008: ")
 
-	largest := 0
+	var largest, product int
 
 	for i := 0; i < (1000 - 13); i++ {
-		slice := digits[i : i+13]
-		product := 1
-		for _, d := range slice {
+		product = 1
+		for _, d := range digits[i : i+13] {
 			product *= int(d - '0')
 		}
 		if product > largest {
