@@ -16,6 +16,7 @@ func main() {
 		run011, run012, run013, run014, run015,
 		run016, run017, run018, run019, run020,
 		run021, run022, run023, run024, run025,
+		run026,
 	}
 
 	args := os.Args[1:]
